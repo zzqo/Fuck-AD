@@ -4,8 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import com.hujiayucc.hook.ModuleMain
-import com.hujiayucc.hook.author.Author
-import com.hujiayucc.hook.author.JwtUtils.isLogin
+// import com.hujiayucc.hook.author.Author
+// import com.hujiayucc.hook.author.JwtUtils.isLogin
 import io.github.libxposed.api.XposedModuleInterface
 
 object Loader: Hooker() {
@@ -17,28 +17,28 @@ object Loader: Hooker() {
             .hook {
                 before {
                     val activity = instance<Activity>()
-                    if (shouldCheckAuth(activity, ModuleMain.prefs)) {
-                        Author(activity, true, ModuleMain.prefs)
-                    }
+                    // if (shouldCheckAuth(activity, ModuleMain.prefs)) {
+                    //     Author(activity, true, ModuleMain.prefs)
+                    // }
                 }
             }
     }
 
-    private fun shouldCheckAuth(context: Context, prefs: SharedPreferences): Boolean {
-        val snapshot = AuthSnapshot.from(prefs)
-        authSnapshot?.let { cached ->
-            if (cached.sameAuthData(snapshot)) return !cached.authorized
-        }
-        return synchronized(this) {
-            authSnapshot?.let { cached ->
-                if (cached.sameAuthData(snapshot)) return@synchronized !cached.authorized
-            }
-            Author(context, false, prefs)
-            val refreshed = AuthSnapshot.from(prefs).copy(authorized = prefs.isLogin())
-            authSnapshot = refreshed
-            !refreshed.authorized
-        }
-    }
+    // private fun shouldCheckAuth(context: Context, prefs: SharedPreferences): Boolean {
+    //     val snapshot = AuthSnapshot.from(prefs)
+    //     authSnapshot?.let { cached ->
+    //         if (cached.sameAuthData(snapshot)) return !cached.authorized
+    //     }
+    //     return synchronized(this) {
+    //         authSnapshot?.let { cached ->
+    //             if (cached.sameAuthData(snapshot)) return@synchronized !cached.authorized
+    //         }
+    //         Author(context, false, prefs)
+    //         val refreshed = AuthSnapshot.from(prefs).copy(authorized = prefs.isLogin())
+    //         authSnapshot = refreshed
+    //         !refreshed.authorized
+    //     }
+    // }
 
     private data class AuthSnapshot(
         val email: String,

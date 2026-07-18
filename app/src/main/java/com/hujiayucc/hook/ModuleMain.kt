@@ -7,6 +7,7 @@ import com.hujiayucc.hook.data.SdkHookerConfig
 import com.hujiayucc.hook.hooker.app.HookerRegistry
 import com.hujiayucc.hook.hooker.sdk.SdkHookerResolver
 import com.hujiayucc.hook.hooker.util.ClickInfo
+import com.hujiayucc.hook.hooker.util.Hooker
 import com.hujiayucc.hook.hooker.util.Loader
 import io.github.libxposed.api.XposedModule
 import io.github.libxposed.api.XposedModuleInterface
@@ -16,7 +17,7 @@ class ModuleMain : XposedModule() {
         private const val TAG = "ModuleMain"
         private const val PREFS_NAME = "config"
 
-        private val BUILTIN_HOOKERS = listOf(Loader)
+        private val BUILTIN_HOOKERS = listOf<Hooker>()
 
         @Volatile
         private var dexKitLoadResult: Boolean? = null
