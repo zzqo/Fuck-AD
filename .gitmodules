@@ -1,9 +1,9 @@
-[submodule "FuckAD-Author"]
-	path = FuckAD-Author
-	url = https://github.com/hujiayucc/FuckAD-Author.git
-[submodule "com.hujiayucc.hook"]
-	path = com.hujiayucc.hook
-	url = https://github.com/Xposed-Modules-Repo/com.hujiayucc.hook.git
 [submodule "gkd"]
 	path = gkd
 	url = https://github.com/gkd-kit/gkd.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/hujiayucc/FuckAD-Backend.git
+[submodule "author"]
+	path = author
+	url = https://github.com/hujiayucc/FuckAD-Author.git

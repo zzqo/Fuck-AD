@@ -36,8 +36,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Fuck AD"
-include(":app",
-    // ":FuckAD-Author",
+include(":app", 
+    // ":author",
     ":gkd-selector")
 project(":gkd-selector").apply {
     projectDir = file("gkd/selector")
